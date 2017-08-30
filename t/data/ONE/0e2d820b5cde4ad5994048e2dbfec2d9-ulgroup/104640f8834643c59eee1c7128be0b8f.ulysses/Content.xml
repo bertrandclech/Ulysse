@@ -1,0 +1,63 @@
+<sheet version="1">
+<markup version="1" identifier="markdownxl" displayName="Markdown XL">
+	<tag definition="heading1" pattern="#"></tag>
+	<tag definition="heading2" pattern="##"></tag>
+	<tag definition="heading3" pattern="###"></tag>
+	<tag definition="heading4" pattern="####"></tag>
+	<tag definition="heading5" pattern="#####"></tag>
+	<tag definition="heading6" pattern="######"></tag>
+	<tag definition="codeblock" pattern="''"></tag>
+	<tag definition="comment" pattern="%%"></tag>
+	<tag definition="divider" pattern="----"></tag>
+	<tag definition="nativeblock" pattern="~~"></tag>
+	<tag definition="blockquote" pattern="&gt;"></tag>
+	<tag definition="orderedList" pattern="\d."></tag>
+	<tag definition="unorderedList" pattern="*"></tag>
+	<tag definition="unorderedList" pattern="+"></tag>
+	<tag definition="unorderedList" pattern="-"></tag>
+	<tag definition="code" startPattern="`" endPattern="`"></tag>
+	<tag definition="delete" startPattern="||" endPattern="||"></tag>
+	<tag definition="emph" startPattern="*" endPattern="*"></tag>
+	<tag definition="emph" startPattern="_" endPattern="_"></tag>
+	<tag definition="inlineComment" startPattern="++" endPattern="++"></tag>
+	<tag definition="inlineNative" startPattern="~" endPattern="~"></tag>
+	<tag definition="mark" startPattern="::" endPattern="::"></tag>
+	<tag definition="strong" startPattern="__" endPattern="__"></tag>
+	<tag definition="strong" startPattern="**" endPattern="**"></tag>
+	<tag definition="annotation" startPattern="{" endPattern="}"></tag>
+	<tag definition="link" startPattern="[" endPattern="]"></tag>
+	<tag definition="footnote" pattern="(fn)"></tag>
+	<tag definition="image" pattern="(img)"></tag>
+	<tag definition="video" pattern="(vid)"></tag>
+</markup>
+<string xml:space="preserve">
+<p><tags><tag kind="heading1"># </tag></tags>LISTE DES RADIOS FM A TALANT</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags>Autoroute Info : 107.7 FM</p>
+<p><tags><tag kind="unorderedList">- </tag></tags>France Culture : 93,7 FM</p>
+<p>France Info : 101.2 FM</p>
+<p>France Inter Dijon 95,9 FM</p>
+<p>France Inter Fleurey/Ouche 94.3 FM</p>
+<p>France musiques 99.2 FM</p>
+<p><tags><tag>	</tag></tags>▪	France Maghreb 2 105.1 FM</p>
+<p><tags><tag>	</tag></tags>▪	Le mouv' 88,9 FM</p>
+<p><tags><tag>	</tag></tags>▪	Radio Classique 105.8 FM</p>
+<p><tags><tag>	</tag></tags>▪	RCF Parabole Dijon 88.3 FM</p>
+<p><tags><tag>	</tag></tags>▪	Nostalgie Dijon 97,5 FM</p>
+<p><tags><tag>	</tag></tags>▪	Chérie FM Dijon 102.5 FM</p>
+<p><tags><tag>	</tag></tags>▪	Europe 1 104.7 FM</p>
+<p><tags><tag>	</tag></tags>▪	Virgin Radio Dijon 87,9 FM</p>
+<p><tags><tag>	</tag></tags>▪	Fréquence plus 95,4 FM</p>
+<p><tags><tag>	</tag></tags>▪	Fun radio Bourgogne 90,7 FM</p>
+<p><tags><tag>	</tag></tags>▪	NRJ 100.6 FM</p>
+<p><tags><tag>	</tag></tags>▪	Radio Dijon Campus 92.2 FM</p>
+<p><tags><tag>	</tag></tags>▪	RTL 104.2 FM</p>
+<p><tags><tag>	</tag></tags>▪	RFM 99.6 FM</p>
+<p><tags><tag>	</tag></tags>▪	RMC Info 94.8 FM</p>
+<p><tags><tag>	</tag></tags>▪	Rire et chansons 91,8 FM</p>
+<p><tags><tag>	</tag></tags>▪	Skyrock 107.1 FM</p>
+<p><tags><tag>	</tag></tags>▪	Parenthèse 94.1 FM</p>
+<p><tags><tag>	</tag></tags>▪	Radio Cultures DIJON 100 FM</p>
+<p><tags><tag>	</tag></tags>▪	K6 FM 101.6 FM</p>
+</string>
+</sheet>

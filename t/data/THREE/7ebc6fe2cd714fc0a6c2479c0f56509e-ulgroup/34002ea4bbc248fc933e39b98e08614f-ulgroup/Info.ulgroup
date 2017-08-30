@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>displayName</key>
+	<string>ELASTICSEARCH</string>
+	<key>sheetClusters</key>
+	<array>
+		<array>
+			<string>a78d17d3047a4f17b31feacd02e4db94.ulysses</string>
+		</array>
+	</array>
+</dict>
+</plist>

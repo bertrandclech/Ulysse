@@ -1,0 +1,387 @@
+<sheet version="1">
+<markup version="1" identifier="markdownxl" displayName="Markdown XL">
+	<tag definition="heading1" pattern="#"></tag>
+	<tag definition="heading2" pattern="##"></tag>
+	<tag definition="heading3" pattern="###"></tag>
+	<tag definition="heading4" pattern="####"></tag>
+	<tag definition="heading5" pattern="#####"></tag>
+	<tag definition="heading6" pattern="######"></tag>
+	<tag definition="codeblock" pattern="''"></tag>
+	<tag definition="comment" pattern="%%"></tag>
+	<tag definition="divider" pattern="----"></tag>
+	<tag definition="nativeblock" pattern="~~"></tag>
+	<tag definition="blockquote" pattern="&gt;"></tag>
+	<tag definition="orderedList" pattern="\d."></tag>
+	<tag definition="unorderedList" pattern="*"></tag>
+	<tag definition="unorderedList" pattern="+"></tag>
+	<tag definition="unorderedList" pattern="-"></tag>
+	<tag definition="code" startPattern="`" endPattern="`"></tag>
+	<tag definition="delete" startPattern="||" endPattern="||"></tag>
+	<tag definition="emph" startPattern="*" endPattern="*"></tag>
+	<tag definition="emph" startPattern="_" endPattern="_"></tag>
+	<tag definition="inlineComment" startPattern="++" endPattern="++"></tag>
+	<tag definition="inlineNative" startPattern="~" endPattern="~"></tag>
+	<tag definition="mark" startPattern="::" endPattern="::"></tag>
+	<tag definition="strong" startPattern="__" endPattern="__"></tag>
+	<tag definition="strong" startPattern="**" endPattern="**"></tag>
+	<tag definition="annotation" startPattern="{" endPattern="}"></tag>
+	<tag definition="link" startPattern="[" endPattern="]"></tag>
+	<tag definition="footnote" pattern="(fn)"></tag>
+	<tag definition="image" pattern="(img)"></tag>
+	<tag definition="video" pattern="(vid)"></tag>
+</markup>
+<string xml:space="preserve">
+<p><tags><tag kind="heading1"># </tag></tags>NAME - perl bindings for libsass</p>
+<p></p>
+<p>CSS<element closed="no" kind="mark" startTag="::">Sass - Compile .scss files using libsass</element></p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>SYNOPSIS</p>
+<p></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Object Oriented API</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>use CSS::Sass;</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Call default constructor</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my $sass = CSS::Sass-&gt;new;</p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Manipulate options for compile calls</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>$sass-&gt;options-&gt;{source_comments} = 1;</p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Call file compilation (may die on errors)</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my $css = $sass-&gt;compile_file('styles.scss');</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Add custom function to use inside your Sass code</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>sub foobar { CSS::Sass::Type::String-&gt;new('blue') }</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>$sass-&gt;options-&gt;{sass_functions}-&gt;{'foobar'} = \ &amp;foobar;</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Compile string and get css output and source-map json</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>$sass-&gt;options-&gt;{source_map_file} = 'output.css.map';</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>($css, $srcmap) = $sass-&gt;compile('A { color: foobar(); }');</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Object Oriented API w/ options</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my $sass = CSS::Sass-&gt;new(include_paths   =&gt; ['some/include/path'],</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                          image_path      =&gt; 'base_url',</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                          output_style    =&gt; SASS_STYLE_COMPRESSED,</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                          source_map_file =&gt; 'output.css.map',</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                          source_comments =&gt; 1,</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                          dont_die        =&gt; 1,</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                          sass_functions  =&gt; {</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                            'foobar($arg)' =&gt; sub { $_[0] }</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                          });</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Compile string and use the registered function</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my ($css, $srcmap) = $sass-&gt;compile('A { color: foobar(red); }');</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Result can be undef because 'dont_die' was set</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>warn $sass-&gt;last_error unless (defined $css);</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Functional API</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>use CSS::Sass qw(:Default sass_compile);</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Functional API, with error messages and source-map</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my ($css, $err, $srcmap) = sass_compile('A { color: red; }');</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>die $err if defined $err;</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Functional API, simple, with no error messages</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my $css = sass_compile('A { color: red; }');</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>die unless defined $css;</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Functional API w/ options</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my ($css, $err, $srcmap) = sass_compile('A { color: red; }',</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                                        include_paths   =&gt; ['some/include/path'],</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                                        image_path      =&gt; 'base_url',</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                                        output_style    =&gt; SASS_STYLE_NESTED,</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>                                        source_map_file =&gt; 'output.css.map');</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Import sass2scss function</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>use CSS::Sass qw(sass2scss);</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># convert indented syntax</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my $scss = sass2scss($sass);</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Import quoting functions</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>use CSS::Sass qw(quote unquote);</p>
+<p><tags><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag kind="codeblock">'' </tag></tags># Exchange quoted strings</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my $string = unquote($from_sass);</p>
+<p><tags><tag kind="codeblock">'' </tag></tags>my $to_sass = quote($string, '"');</p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>DESCRIPTION</p>
+<p></p>
+<p>CSS<element closed="no" kind="mark" startTag="::">Sass provides a perl interface to libsass, a fairly complete Sass</element></p>
+<p>compiler written in C<element closed="no" kind="inlineComment" startTag="++">.  It is currently somewhere around ruby sass 3.2/3.3</element></p>
+<p>feature parity and heading towards 3.4. It can compile .scss and .sass files.</p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>OBJECT ORIENTED INTERFACE</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">new</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>$sass = CSS::Sass-&gt;new(options)</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Creates a Sass object with the specified options. Example:</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>$sass = CSS::Sass-&gt;new; # no options</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>$sass = CSS::Sass-&gt;new(output_style =&gt; SASS_STYLE_NESTED);</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">compile(source_code)</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>$css = $sass-&gt;compile("A { color: blue; }");</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>This compiles the Sass string that is passed in as the first parameter. It</p>
+<p><tags><tag>	</tag></tags>will <element kind="code" startTag="`">croak()</element> if there is an error, unless the <element kind="code" startTag="`">dont_die</element> option is set.</p>
+<p><tags><tag>	</tag></tags>It will return <element kind="code" startTag="`">undef</element> in that case.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">last_error</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>$sass-&gt;last_error</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Returns the error encountered by the most recent invocation of</p>
+<p><tags><tag>	</tag></tags><element kind="code" startTag="`">compile</element>. This is only useful if the <element kind="code" startTag="`">dont_die</element> option is set.</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags><element kind="code" startTag="`">libsass</element> error messages are in the form ":$line:$column $error<escape>\_</escape>message" so</p>
+<p><tags><tag>	</tag></tags>you can append them to the filename for a standard looking error message.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">options</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>$sass-&gt;options-&gt;{dont_die} = 1;</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Allows you to inspect or change the options after a call to <element kind="code" startTag="`">new</element>.</p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>FUNCTIONAL INTERFACE</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">$css = sass_compile(source_code, options)</element></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">($css, $err, $srcmap) = sass_compile(source_code, options)</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Compiles the given Sass source code. It returns CSS, error and source-map in</p>
+<p><tags><tag>	</tag></tags>list context or just the CSS in scalar context. Either CSS or error will be</p>
+<p><tags><tag>	</tag></tags><element kind="code" startTag="`">undef</element>, but never both.</p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>OPTIONS</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">output_style</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS_STYLE_NESTED</element></p>
+<p><tags><tag>	</tag><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS_STYLE_COMPRESSED</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>The default is <element kind="code" startTag="`">SASS_STYLE_NESTED</element>. Set to <element kind="code" startTag="`">SASS_STYLE_COMPRESSED</element> to</p>
+<p><tags><tag>	</tag></tags>eliminate all whitespace (for your production CSS).</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">source_comments</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Set to <element kind="code" startTag="`">true</element> to get extra comments in the output, indicating what input</p>
+<p><tags><tag>	</tag></tags>line the code corresponds to.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">source_map_file</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Setting this option enables the source-map generating. The file will not</p>
+<p><tags><tag>	</tag></tags>actually be created, but its content will be returned to the caller. It</p>
+<p><tags><tag>	</tag></tags>will also enable sourceMappingURL comment by default. See <element kind="code" startTag="`">no_src_map_url</element>.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">source_map_embed</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Embeds the complete source-map content into the sourceMappingURL, by using</p>
+<p><tags><tag>	</tag></tags>base64 encoded data uri (sourceMappingURL=data:application/json;base64,XXXX)</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">source_map_contents</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Embeds the content of each source inside a <element kind="code" startTag="`">sourcesContent</element> property in the</p>
+<p><tags><tag>	</tag></tags>source-map json. Setting this option along with <element kind="code" startTag="`">source_map_embed</element> allows</p>
+<p><tags><tag>	</tag></tags>for a completely self-contained source-map.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">no_src_map_url</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Set to <element kind="code" startTag="`">true</element> to omit the sourceMappingURL comment from the output css.</p>
+<p><tags><tag>	</tag></tags>Setting this options makes <element kind="code" startTag="`">source_map_embed</element> useless.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">include_paths</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>This is an arrayref that holds the list a of paths to search (in addition to</p>
+<p><tags><tag>	</tag></tags>the current directory) when following Sass <element kind="code" startTag="`">@import</element> directives.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">image_path</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>This is a string that holds the base URL. This is only used in the</p>
+<p><tags><tag>	</tag></tags>(non-standard) <element kind="code" startTag="`">image-url()</element> Sass function. For example, if <element kind="code" startTag="`">image_path</element></p>
+<p><tags><tag>	</tag></tags>is set to <element kind="code" startTag="`">'file:///tmp/a/b/c'</element>, then the follwoing Sass code:</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>.something { background-image: image-url("my/path"); }</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>...will compile to this:</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>.something { background-image: url("file:///tmp/a/b/c/my/path"); }</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">dont_die</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>This is only valid when used with the <element kind="link"><attribute identifier="URL">#object-oriented-interface</attribute>Object Oriented Interface</element>. It is</p>
+<p><tags><tag>	</tag></tags>described in detail there.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">sass_functions</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>This is a hash of Sass functions implemented in Perl. The key for each</p>
+<p><tags><tag>	</tag></tags>function should be the function's Sass signature and the value should be a</p>
+<p><tags><tag>	</tag></tags>Perl subroutine reference. This subroutine will be called whenever the</p>
+<p><tags><tag>	</tag></tags>function is used in the Sass being compiled. The arguments to the subroutine</p>
+<p><tags><tag>	</tag></tags>are <element kind="link"><attribute identifier="URL">https://metacpan.org/pod/CSS::Sass::Type</attribute>CSS<element kind="mark" startTag="::">Sass</element>Type</element> objects, which map to native perl types if possible.</p>
+<p><tags><tag>	</tag></tags>You can return either <element kind="link"><attribute identifier="URL">https://metacpan.org/pod/CSS::Sass::Type</attribute>CSS<element kind="mark" startTag="::">Sass</element>Type</element> objects or supported native perl data</p>
+<p><tags><tag>	</tag></tags>structures. <element kind="code" startTag="`">undef</element> is an equivalent of CSS<element kind="mark" startTag="::">Sass</element>Type<element closed="no" kind="mark" startTag="::">Null-&gt;new.</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>The function is called with an <element kind="code" startTag="`">eval</element> statement so you may use "die" to</p>
+<p><tags><tag>	</tag></tags>throw errors back to libsass (<element kind="code" startTag="`">CSS::Sass::Type::Error</element>).</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>A simple example:</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>sass_functions =&gt; {</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>    'append_hello($str)' =&gt; sub {</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>        my ($str) = @_;</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>        die '$str should be a string' unless $str-&gt;isa("CSS::Sass::Type::String");</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>        return CSS::Sass::Type::String-&gt;new($str-&gt;value . " hello");</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>        # equivalent to return $str-&gt;value . " hello";</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>    }</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>}</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>If this is encountered in the Sass:</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>some_rule: append_hello("Well,");</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Then the ouput would be:</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>some_rule: Well, hello;</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags>Custom <element kind="code" startTag="`">importer</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>This is a function implemented in Perl that gets called for every @import statement. This</p>
+<p><tags><tag>	</tag></tags>feature is in an experimental stage and you have to be careful to return the expected</p>
+<p><tags><tag>	</tag></tags>structure. You can return multiple imports from one call to make it possible to</p>
+<p><tags><tag>	</tag></tags>implement globbing importers etc. If you omit $data, libsass will try to load the</p>
+<p><tags><tag>	</tag></tags>given path itself. It will go through the normal lockup algorithm as it would had</p>
+<p><tags><tag>	</tag></tags>encountered the "virtual" import statement on its own. $scope holds the current</p>
+<p><tags><tag>	</tag></tags>import path. Imports in css are meant to be relative to the parent scope, so you</p>
+<p><tags><tag>	</tag></tags>can use it to create absolute urls or paths within the context your working with.</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>A simple example:</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>importer =&gt; sub {</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>  my ($import, $scope) = @_;</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>  return [</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>    # [ $real_path ] or [ $virtual_path, $data ],</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>    [ "http://xyz/file", "div { color: red; }" ],</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>  ];</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>}</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">Sass_Value</element> Types</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Sass knowns various <element kind="code" startTag="`">Sass_Value</element> types. We export the constants for completeness.</p>
+<p><tags><tag>	</tag></tags>Each type is mapped to a package inside the <element kind="code" startTag="`">CSS::Sass::Type</element> namespace.</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags># Value types</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_ERROR</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_NULL</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_BOOLEAN</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_NUMBER</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_STRING</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_COLOR</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_LIST</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_MAP</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags># List styles</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_COMMA</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>SASS_SPACE</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags>Autodetection for value types returned by custom function</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Many <element kind="code" startTag="`">Sass_Value</element> types can be mapped directly to perl data structures.</p>
+<p><tags><tag>	</tag></tags><element kind="code" startTag="`">maps</element> and <element kind="code" startTag="`">lists</element> map directly to <element kind="code" startTag="`">hashes</element> and <element kind="code" startTag="`">arrays</element>. Scalars are</p>
+<p><tags><tag>	</tag></tags>mapped to <element kind="code" startTag="`">string</element>, <element kind="code" startTag="`">number</element> or <element kind="code" startTag="`">null</element>. You can directly return these</p>
+<p><tags><tag>	</tag></tags>native data types from your custom functions or use the datastructures</p>
+<p><tags><tag>	</tag></tags>to access maps and lists.</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>undef; # same as CSS::Sass::Type::Null-&gt;new;</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>42; # same as CSS::Sass::Type::Number-&gt;new(42);</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>"foobar"; # same as CSS::Sass::Type::String-&gt;new("foobar");</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>[ 'foo', 'bar' ]; # same as CSS::Sass::Type::List-&gt;new('foo', 'bar');</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>{ key =&gt; 'value' }; # same as CSS::Sass::Type::Map-&gt;new(key =&gt; 'value');</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>We bless native return values from custom functions into the correct package.</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags># sub get-map { return { key: "value" } };</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>.class { content: map-get(get-map(), key); }</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags># sub get-list { return [ 'foo', 42, 'bar' ] };</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>.class { content: nth(get-list(), 2); }</p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>MISCELLANEOUS</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS2SCSS_PRETTIFY_0</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Write everything on one line (minimized)</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS2SCSS_PRETTIFY_1</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Add lf after opening bracket (lisp style)</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS2SCSS_PRETTIFY_2</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Add lf after opening and before closing bracket (1TBS style)</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS2SCSS_PRETTIFY_3</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Add lf before/after opening and before closing (allman style)</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS2SCSS_KEEP_COMMENT</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Keep multi-line source code comments.</p>
+<p><tags><tag>	</tag></tags>Single-line comments are removed by default.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS2SCSS_STRIP_COMMENT</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Strip all source code (single- and multi-line) comments.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">SASS2SCSS_CONVERT_COMMENT</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>Convert single-line comments to mutli-line comments.</p>
+<p></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">sass2scss($sass, $options)</element></p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag></tags>We expose the <element kind="code" startTag="`">sass2scss</element> function, which can be used to convert indented sass</p>
+<p><tags><tag>	</tag></tags>syntax to the newer scss syntax. You may need this, since <element kind="code" startTag="`">libsass</element> will not</p>
+<p><tags><tag>	</tag></tags>automatically recognize the format of your string data.</p>
+<p><tags><tag>	</tag></tags></p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>my $options = SASS2SCSS_PRETTIFY_1;</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>$options |= SASS2SCSS_CONVERT_COMMENT;</p>
+<p><tags><tag>	</tag><tag kind="codeblock">'' </tag></tags>my $scss = sass2scss($sass, $options);</p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>SEE ALSO</p>
+<p></p>
+<p><element kind="link"><attribute identifier="URL">https://metacpan.org/pod/CSS::Sass::Type</attribute>CSS<element kind="mark" startTag="::">Sass</element>Type</element></p>
+<p></p>
+<p><element kind="link"><attribute identifier="URL">http://sass-lang.com/</attribute>The Sass Home Page</element></p>
+<p></p>
+<p><element kind="link"><attribute identifier="URL">https://github.com/sass/libsass</attribute>The libsass Home Page</element></p>
+<p></p>
+<p><element kind="link"><attribute identifier="URL">https://github.com/sass/perl-libsass</attribute>The CSS<element closed="no" kind="mark" startTag="::">Sass Home Page</element></element></p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>AUTHOR</p>
+<p></p>
+<p>David Caldwell <element kind="link"><attribute identifier="URL">mailto:david@porkrind.org</attribute>david@porkrind.org</element> Marcel Greter <element kind="link"><attribute identifier="URL">mailto:perl-libsass@ocbnet.ch</attribute>perl-libsass@ocbnet.ch</element></p>
+<p></p>
+<p><tags><tag kind="heading1"># </tag></tags>LICENSE</p>
+<p></p>
+<p>The MIT License (MIT)</p>
+<p></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy</p>
+<p>of this software and associated documentation files (the "Software"), to deal</p>
+<p>in the Software without restriction, including without limitation the rights</p>
+<p>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</p>
+<p>copies of the Software, and to permit persons to whom the Software is</p>
+<p>furnished to do so, subject to the following conditions:</p>
+<p></p>
+<p>The above copyright notice and this permission notice shall be included in</p>
+<p>all copies or substantial portions of the Software.</p>
+<p></p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</p>
+<p>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</p>
+<p>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</p>
+<p>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</p>
+<p>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</p>
+<p>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</p>
+<p>THE SOFTWARE.</p>
+</string>
+</sheet>

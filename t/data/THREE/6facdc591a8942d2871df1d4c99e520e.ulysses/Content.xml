@@ -1,0 +1,76 @@
+<sheet version="1">
+<markup version="1" identifier="markdownxl" displayName="Markdown XL">
+	<tag definition="heading1" pattern="#"></tag>
+	<tag definition="heading2" pattern="##"></tag>
+	<tag definition="heading3" pattern="###"></tag>
+	<tag definition="heading4" pattern="####"></tag>
+	<tag definition="heading5" pattern="#####"></tag>
+	<tag definition="heading6" pattern="######"></tag>
+	<tag definition="codeblock" pattern="''"></tag>
+	<tag definition="comment" pattern="%%"></tag>
+	<tag definition="divider" pattern="----"></tag>
+	<tag definition="nativeblock" pattern="~~"></tag>
+	<tag definition="blockquote" pattern="&gt;"></tag>
+	<tag definition="orderedList" pattern="\d."></tag>
+	<tag definition="unorderedList" pattern="*"></tag>
+	<tag definition="unorderedList" pattern="+"></tag>
+	<tag definition="unorderedList" pattern="-"></tag>
+	<tag definition="code" startPattern="`" endPattern="`"></tag>
+	<tag definition="delete" startPattern="||" endPattern="||"></tag>
+	<tag definition="emph" startPattern="*" endPattern="*"></tag>
+	<tag definition="emph" startPattern="_" endPattern="_"></tag>
+	<tag definition="inlineComment" startPattern="++" endPattern="++"></tag>
+	<tag definition="inlineNative" startPattern="~" endPattern="~"></tag>
+	<tag definition="mark" startPattern="::" endPattern="::"></tag>
+	<tag definition="strong" startPattern="__" endPattern="__"></tag>
+	<tag definition="strong" startPattern="**" endPattern="**"></tag>
+	<tag definition="annotation" startPattern="{" endPattern="}"></tag>
+	<tag definition="link" startPattern="[" endPattern="]"></tag>
+	<tag definition="footnote" pattern="(fn)"></tag>
+	<tag definition="image" pattern="(img)"></tag>
+	<tag definition="video" pattern="(vid)"></tag>
+</markup>
+<string xml:space="preserve">
+<p><tags><tag kind="heading1"># </tag></tags>DATA STRUCTURE : FIRST LINKS</p>
+<p><tags><tag kind="heading2">## </tag></tags>TO LOOKK FOR : PERL MODULES RELATED </p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">CSS::Selector::Parser</element></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">[http://doc.scrapy.org/en/0.24/topics/selectors.html]</element> :</p>
+<p><tags><tag>	</tag><tag kind="unorderedList">- </tag></tags></p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>W3C and …</p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="link"><attribute identifier="URL">http://www.w3.org/TR/css-syntax-3/</attribute>http://www.w3.org/TR/css-syntax-3/</element></p>
+<p><tags><tag kind="unorderedList">- </tag></tags>JSON RFC : <element kind="link"><attribute identifier="URL">http://json.org/</attribute>http://json.org/</element></p>
+<p><tags><tag kind="unorderedList">- </tag></tags>GODOCS : CSS Package <element kind="link"><attribute identifier="URL">https://godoc.org/code.google.com/p/go-html-transform/css</attribute>https://godoc.org/code.google.com/p/go-html-transform/css</element></p>
+<p><tags><tag kind="unorderedList">- </tag></tags>Try selectors for better understanding : <element kind="link"><attribute identifier="URL">http://www.w3schools.com/cssref/trysel.asp</attribute>http://www.w3schools.com/cssref/trysel.asp</element></p>
+<p><tags><tag kind="unorderedList">- </tag></tags>Character entities : <element kind="link"><attribute identifier="URL">http://brajeshwar.github.io/entities/</attribute>http://brajeshwar.github.io/entities/</element></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="link"><attribute identifier="URL">http://doc.scrapy.org/en/0.24/topics/selectors.html</attribute>http://doc.scrapy.org/en/0.24/topics/selectors.html</element></p>
+<p><tags><tag kind="heading2">## </tag></tags>ABOIUT KNOWLEDGE</p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">Knowledge Representation, Reasoning, and the Design of Intelligent Agents</element></p>
+<p><tags><tag>	</tag><tag>	</tag></tags>By: Michael Gelfond; Yulia Kahl</p>
+<p><tags><tag>	</tag><tag>	</tag></tags>Publisher: Cambridge University Press</p>
+<p><tags><tag>	</tag><tag>	</tag></tags>Pub. Date: February 28, 2014</p>
+<p><tags><tag>	</tag><tag>	</tag></tags>Print ISBN: 978-1-107-02956-9</p>
+<p><tags><tag>	</tag><tag>	</tag></tags>Pages in Print Edition: 360</p>
+<p><tags><tag>	</tag><tag>	</tag></tags>Subscriber Rating: ￼￼￼￼￼ <element kind="link">0 Ratings</element></p>
+<p><tags><tag kind="heading2">## </tag></tags>REDIS</p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">Spring Data</element></p>
+<p>Copyright © 2012 Packt Publishing</p>
+<p>Available in EPFL Digital Library</p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags></p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">Big Data for Chimps</element></p>
+<p>Have a look on <element kind="code" startTag="`">Representing a Complex Data Structure with a JSON-Encoded String</element></p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>CSS</p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">Transforms in CSS</element></p>
+<p>by Eric A. Meyer</p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">CSS : The definitive guide</element> fourth edition by Eric A. Meyer</p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>SASS, LESS , HAML</p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>JS TOOLKIT</p>
+<p><tags><tag kind="heading3">### </tag></tags>DOJO</p>
+<p><tags><tag kind="unorderedList">- </tag></tags><element kind="code" startTag="`">Dojo: The Definitive Guide</element></p>
+<p></p>
+<p></p></string>
+</sheet>

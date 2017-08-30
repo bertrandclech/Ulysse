@@ -1,0 +1,41 @@
+# DATA STRUCTURE : FIRST LINKS
+## TO LOOKK FOR : PERL MODULES RELATED 
+- `CSS::Selector::Parser`
+- `[http://doc.scrapy.org/en/0.24/topics/selectors.html]` :
+	- 
+
+## W3C and …
+- ￼http://www.w3.org/TR/css-syntax-3/￼
+- JSON RFC : ￼http://json.org/￼
+- GODOCS : CSS Package ￼https://godoc.org/code.google.com/p/go-html-transform/css￼
+- Try selectors for better understanding : ￼http://www.w3schools.com/cssref/trysel.asp￼
+- Character entities : ￼http://brajeshwar.github.io/entities/￼
+- ￼http://doc.scrapy.org/en/0.24/topics/selectors.html￼
+## ABOIUT KNOWLEDGE
+- `Knowledge Representation, Reasoning, and the Design of Intelligent Agents`
+		By: Michael Gelfond; Yulia Kahl
+		Publisher: Cambridge University Press
+		Pub. Date: February 28, 2014
+		Print ISBN: 978-1-107-02956-9
+		Pages in Print Edition: 360
+		Subscriber Rating: ￼￼￼￼￼ ￼0 Ratings￼
+## REDIS
+- `Spring Data`
+Copyright © 2012 Packt Publishing
+Available in EPFL Digital Library
+
+## 
+- `Big Data for Chimps`
+Have a look on `Representing a Complex Data Structure with a JSON-Encoded String`
+
+## CSS
+- `Transforms in CSS`
+by Eric A. Meyer
+- `CSS : The definitive guide` fourth edition by Eric A. Meyer
+
+## SASS, LESS , HAML
+
+## JS TOOLKIT
+### DOJO
+- `Dojo: The Definitive Guide`
+

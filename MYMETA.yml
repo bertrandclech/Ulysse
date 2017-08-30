@@ -1,0 +1,30 @@
+---
+abstract: 'A module to export All the Ulysse Notes as a static layout of Markdown files '
+author:
+  - 'Bertrand Clech <clech@eurecom.fr>'
+build_requires:
+  ExtUtils::MakeMaker: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 0
+generated_by: 'ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.150010'
+license: unknown
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Ulysse
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  File::Basename: '2.84'
+  File::Copy: '2.26'
+  File::Find: '1.23'
+  File::HomeDir: '1'
+  File::Path: '2.09'
+  File::Spec: '3.4'
+  Mac::PropertyList: '1.41'
+  Test::File: '1.44'
+version: '0.01'
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
