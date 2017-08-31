@@ -7,7 +7,7 @@ This tool creates a full layout of Ulysse notes in markdown format.
 
 ##REQUIREMENTS
 
-Of course the tool requires a MacOS computer with UlysseApp instaled.  
+Of course the tool requires a MacOS computer with UlysseApp installed and at least a backup performed.  
 
 ##DEFAULT VALUES
 
