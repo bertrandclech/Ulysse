@@ -18,24 +18,28 @@ This value can be changed in Ulysse.pm file.
 
 To install this module type the following:
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+   >perl Makefile.PL
+   
+   >make
+   
+   >make test
+   
+   >make install
 
 ##DEPENDENCIES
 
 This module requires these other modules and libraries:
-- File::Basename
-- File::Find
-- Mac::PropertyList
-- File::Spec
-- File::Path
-- File::Copy
-- File::HomeDir
-- Test::File
-- Carp
-- Capture::Tiny  
+
+* File::Basename
+* File::Find
+* Mac::PropertyList
+* File::Spec
+* File::Path
+* File::Copy
+* File::HomeDir
+* Test::File
+* Carp
+* Capture::Tiny  
 
 ##COPYRIGHT AND LICENCE
 
