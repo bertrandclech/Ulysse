@@ -9,18 +9,26 @@ It uses the Last Backup performed by Ulysse on user request see UlysseApp Prefer
 ## Usage
 
 After installation, check the Ulysse command is available by typing :
-$ which Ulysse
+>$ which Ulysse
+
 Should return something like
 > Ulysse is /usr/local/bin/Ulysse
-Then run the Ulysse command
-$ Ulysse
-If a backup of Ulysse Notes has been performed before, in the user homedir you should see your notes layout in public/MD
-$ cd
-$ ls public/MD
-Should gives something like :
-> Boîte pour tout                    Trash-ultrash
-> Sur mon Mac                        Ubiquitous Library.ulstoragebackup
 
+Then run the Ulysse command
+>$ Ulysse
+
+If a backup of Ulysse Notes has been performed before, in the user homedir you should see your notes layout in public/MD
+>$ cd
+
+>$ ls public/MD
+
+Should gives something like :
+> Boîte pour tout
+> Trash-ultrash
+> Sur mon Mac
+> Ubiquitous Library.ulstoragebackup
+
+Then see notes in these folders
 
 
 ##LIMITATIONS
